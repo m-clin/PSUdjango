@@ -31,7 +31,7 @@ class Command (BaseCommand):
 
         for _ in range (count):
             Student.objects.create(
-                student_id = f"{fake.random_int(2020-2024)}-{fake.random_int(1,8)}-{fake.random_number(digits=4)}",
+                student_id = f"{fake.random_int(2020, 2024)}-{fake.random_int(1,8)}-{fake.random_number(digits=4)}",
                 lastname = fake.last_name(),
                 firstname = fake.first_name(),
                 middlename = fake.last_name(),
