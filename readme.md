@@ -1,4 +1,4 @@
-# Product Description
+# Project Description
 
 ### University Management System
 
