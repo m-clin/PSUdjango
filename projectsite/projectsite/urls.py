@@ -39,5 +39,6 @@ urlpatterns = [
     path('college_list', v.CollegeList.as_view(), name='college-list'),
     path('college_list/add', v.CollegeCreateView.as_view(), name='college-add'),
     path('college_list/<pk>', v.CollegeUpdateView.as_view(), name='college-update'),
+    path('college_list/<pk>/delete', v.CollegeDeleteView.as_view(), name='college-delete'),
     
 ]
