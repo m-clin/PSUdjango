@@ -13,7 +13,7 @@ class HomePageView(ListView):
     
 class OrganizationList(ListView):
     model = Organization
-    context_object_name = 'organizations'
+    context_object_name = 'organization'
     template_name = 'organizations.html'
     paginate_by = 5
     
@@ -21,4 +21,4 @@ class OrganizationCreateView(CreateView):
     model = Organization
     form_class = OrganizationForm
     template_name = 'organization_add.html'
-    success_url = reverse_lazy('organizations-list')
+    success_url = reverse_lazy('organization-list')
