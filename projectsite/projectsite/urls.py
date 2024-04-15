@@ -25,8 +25,13 @@ urlpatterns = [
     path('organization_list/add', v.OrganizationCreateView.as_view(), name='organization-add'),
     path('organization_list/<pk>', v.OrganizationUpdateView.as_view(), name='organization-update'),
     path('organization_list/<pk>/delete', v.OrganizationDeleteView.as_view(), name='organization-delete'),
+    
     path('student_list', v.StudentList.as_view(), name='student-list'),
     path('student_list/add', v.StudentCreateView.as_view(), name='student-add'),
     path('student_list/<pk>', v.StudentUpdateView.as_view(), name='student-update'),
     path('student_list/<pk>/delete', v.StudentDeleteView.as_view(), name='student-delete'),
+    
+    path('orgmember_list', v.OrgMemberList.as_view(), name='orgmember-list'),
+    
+    
 ]
