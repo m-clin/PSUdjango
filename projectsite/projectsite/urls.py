@@ -41,4 +41,6 @@ urlpatterns = [
     path('college_list/<pk>', v.CollegeUpdateView.as_view(), name='college-update'),
     path('college_list/<pk>/delete', v.CollegeDeleteView.as_view(), name='college-delete'),
     
+    path('program_list', v.ProgramList.as_view(), name='program-list'),
+    
 ]
