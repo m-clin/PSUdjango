@@ -43,5 +43,5 @@ urlpatterns = [
     
     path('program_list', v.ProgramList.as_view(), name='program-list'),
     path('program_list/add', v.ProgramCreateView.as_view(), name='program-add'),
-    
+    path('program_list/<pk>', v.ProgramUpdateView.as_view(), name='program-update'),
 ]
