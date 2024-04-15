@@ -85,3 +85,9 @@ class CollegeList(ListView):
     context_object_name = 'college'
     template_name = 'colleges.html'
     paginate_by = 5
+    
+class CollegeCreateView(CreateView):
+    model = College
+    form_class = CollegeForm
+    template_name = 'college_add.html'
+    success_url = reverse_lazy('college-list')
