@@ -62,3 +62,9 @@ class OrgMemberList(ListView):
     context_object_name = 'orgmember'
     template_name = 'orgmembers.html'
     paginate_by = 5
+    
+class OrgMemberCreateView(CreateView):
+    model = OrgMember
+    form_class = OrgMemberForm
+    template_name = 'orgmember_add.html'
+    success_url = reverse_lazy('orgmember-list')

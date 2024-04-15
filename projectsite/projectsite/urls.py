@@ -32,6 +32,7 @@ urlpatterns = [
     path('student_list/<pk>/delete', v.StudentDeleteView.as_view(), name='student-delete'),
     
     path('orgmember_list', v.OrgMemberList.as_view(), name='orgmember-list'),
+    path('orgmember_list/add', v.OrgMemberCreateView.as_view(), name='orgmember-add'),
     
     
 ]
