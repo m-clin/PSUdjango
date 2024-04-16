@@ -1,8 +1,8 @@
 # Project Description
 
-### University Management System
+### University Organization Management System
 
-This is a sample University Management System Django web application designed to manage various entities within a university settings. The project serves as a practice in Django development and covers the management of colleges, programs, organizations, students, and organization members.
+This is a sample University Organization Management System Django web application designed to manage various entities within a university settings. The project serves as a practice in Django development and covers the management of colleges, programs, organizations, students, and organization members.
 
 With this application, you can efficiently handle the following:
 
@@ -12,7 +12,7 @@ With this application, you can efficiently handle the following:
 - **Student Management**: Keep track of enrolled students and their information.
 - **Organization Member Management**: Assign students as members of different organizations.
 
-This project demonstrates the use of Django's core features, such as models, and admin interface, to build a functional web application for university management.
+This project demonstrates the use of Django's core features, such as models, views, templates, and admin interface, to build a functional web application for university management.
 
 
 ## About the Authors
