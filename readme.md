@@ -12,7 +12,7 @@ With this application, you can efficiently handle the following:
 - **Student Management**: Keep track of enrolled students and their information.
 - **Organization Member Management**: Assign students as members of different organizations.
 
-This project demonstrates the use of Django's core features, such as models, views, templates, and admin interface, to build a functional web application for university management.
+This project demonstrates the use of Django's core features, such as models, views, templates, and admin interface, to build a functional web application for university organizations management.
 
 
 ## About the Authors
