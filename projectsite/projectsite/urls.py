@@ -22,6 +22,13 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', v.HomePageView.as_view(), name='home'),
+    path('student_count_by_program/', v.student_count_by_program, name='chart'),
+    path('student-distribution-by-organization/', v.student_distribution_by_organization, name='chart'),
+    path('org-members-per-year/', v.get_org_members_per_year, name='chart'),
+    path('organizations_per_college/', v.organizations_per_college, name='chart'),
+    path('student_count_by_college/', v.student_count_by_college, name='chart'),
+    path('students_without_organizations_per_year/', v.students_without_organizations_per_year, name='chart'),
+    
     path('organization_list', v.OrganizationList.as_view(), name='organization-list'),
     path('organization_list/add', v.OrganizationCreateView.as_view(), name='organization-add'),
     path('organization_list/<pk>', v.OrganizationUpdateView.as_view(), name='organization-update'),
