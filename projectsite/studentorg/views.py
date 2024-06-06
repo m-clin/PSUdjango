@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.db.models import Count, OuterRef, Subquery
 from django.db.models.functions import TruncYear
+from django.db import connection
 
 
 @method_decorator(login_required, name='dispatch')
@@ -203,13 +204,31 @@ class ProgramDeleteView(DeleteView):
 
     
 def student_count_by_program(request):
-    data = Program.objects.annotate(student_count=Count('student')).values('prog_name', 'student_count')
-    return JsonResponse(list(data), safe=False)
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT p.prog_name, COUNT(s.id) as student_count
+            FROM studentorg_program p
+            LEFT JOIN studentorg_student s ON s.program_id = p.id
+            GROUP BY p.prog_name
+        """)
+        data = cursor.fetchall()
+
+    response_data = [{"prog_name": row[0], "student_count": row[1]} for row in data]
+    return JsonResponse(response_data, safe=False)
 
 
 def student_distribution_by_organization(request):
-    data = Organization.objects.annotate(student_count=Count('orgmember__student')).values('name', 'student_count')
-    return JsonResponse(list(data), safe=False)
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT o.name, COUNT(DISTINCT om.id)
+            FROM studentorg_organization o
+            LEFT JOIN studentorg_orgmember om ON om.organization_id = o.id
+            GROUP BY o.id
+        """)
+        data = cursor.fetchall()
+
+    response_data = [{"name": row[0], "student_count": row[1]} for row in data]
+    return JsonResponse(response_data, safe=False)
 
 
 def get_org_members_per_year(request):
@@ -225,17 +244,32 @@ def get_org_members_per_year(request):
 
 
 def organizations_per_college(request):
-    colleges = College.objects.annotate(
-        org_count=Count('organization'),
-    ).values('name', 'org_count')
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT c.name, COUNT(o.id) AS org_count
+            FROM studentorg_college c
+            LEFT JOIN studentorg_organization o ON o.college_id = c.id
+            GROUP BY c.name
+        """)
+        data = cursor.fetchall()
 
-    data = list(colleges)
-    return JsonResponse(data, safe=False)
+    response_data = [{"name": row[0], "org_count": row[1]} for row in data]
+    return JsonResponse(response_data, safe=False)
 
 
 def student_count_by_college(request):
-    data = College.objects.annotate(student_count=Count('program__student')).values('name', 'student_count')
-    return JsonResponse(list(data), safe=False)
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT c.name, COUNT(s.id) AS student_count
+            FROM studentorg_college c
+            LEFT JOIN studentorg_program p ON p.college_id = c.id
+            LEFT JOIN studentorg_student s ON s.program_id = p.id
+            GROUP BY c.name
+        """)
+        data = cursor.fetchall()
+
+    response_data = [{"name": row[0], "student_count": row[1]} for row in data]
+    return JsonResponse(response_data, safe=False)
 
 
 def students_without_organizations_per_year(request):
