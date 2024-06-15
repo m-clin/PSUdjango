@@ -14,7 +14,7 @@
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="index.html" class="logo">
+				<a href="{% url 'home'%}" class="logo">
 					Ready Dashboard
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,14 +104,14 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="{% static 'img/profile.jpg' %}" alt="user-img" width="36" class="img-circle"><span >Hizrian</span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="{% static 'img/profile.jpg' %}" alt="user-img" width="36" class="img-circle"><span >Rangz</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
 										<div class="u-img"><img src="{% static 'img/profile.jpg' %}" alt="user"></div>
 										<div class="u-text">
-											<h4>Hizrian</h4>
-											<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+											<h4>Rangz</h4>
+											<p class="text-muted">202180029@psu.palawan.edu.ph</p><a href="https://github.com/iAmRangz" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
 										</div>
 									</li>
 									<div class="dropdown-divider"></div>
@@ -178,31 +178,31 @@
 						</li>
 						<li class="nav-item">
 							<a href="{% url 'organization-list' %}">
-								<i class="la la-table"></i>
+								<i class="la la-sitemap"></i>
 								<p>Organization</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="{% url 'orgmember-list' %}">
-								<i class="la la-keyboard-o"></i>
+								<i class="la la-user-plus"></i>
 								<p>Org. Members</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="{% url 'student-list' %}">
-								<i class="la la-th"></i>
+								<i class="la la-user"></i>
 								<p>Student</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="{% url 'college-list' %}">
-								<i class="la la-bell"></i>
+								<i class="la la-building"></i>
 								<p>College</p>
 							</a>
 						</li>
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a href="{% url 'program-list' %}">
-								<i class="la la-font"></i>
+								<i class="la la-book"></i>
 								<p>Program</p>
 							</a>
 						</li>
@@ -217,11 +217,6 @@
 						<nav class="pull-left">
 							<ul class="nav">
 								<li class="nav-item">
-									<a class="nav-link" href="http://www.themekita.com">
-										ThemeKita
-									</a>
-								</li>
-								<li class="nav-item">
 									<a class="nav-link" href="#">
 										Help
 									</a>
@@ -234,7 +229,7 @@
 							</ul>
 						</nav>
 						<div class="copyright ml-auto">
-							2018, made with <i class="la la-heart heart text-danger"></i> by <a href="http://www.themekita.com">ThemeKita</a>
+							2024, made with <i class="la la-heart heart text-danger"></i> by <a href="https://www.github.com/iAmRangz">Rangz</a>
 						</div>
 					</div>
 				</footer>
